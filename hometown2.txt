@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Alappuzha</title>
+</head>
+<body>
+<h3>ABOUT</h3>
+<p><b>Weather:</b> 28°C, Wind W at 13 km/h, 82% Humidity
+<b>Neighborhoods:<b> Kalarcode, Pathirappally, Kommady, MORE
+<b>District:</b> Alappuzha district
+<b>PIN:</b> 688001
+<b>Population (2020)</b>: 174,176
+<b>Telephone code</b>: 0477
+</body>
+</html>
+
+
