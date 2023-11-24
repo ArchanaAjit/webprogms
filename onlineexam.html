@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Web Programming Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:#FFE7C7 ;
+        }
+
+        #examContainer {
+            background-color: #E1F8DC;
+            border: 5px solid #CAF1DE;
+   padding: 20px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div id="examContainer">
+    <h1 align="center"><u>Web Programming Quiz</u></h1>
+
+    <form id="examForm">
+<h3>Qn 1: What is the difference between an opening tag and a closing tag? ?</h3>
+    <label>
+        <input type="radio" name="q1" value="Opening tag has a / in front"> Opening tag has a / in front
+    </label>
+    <label>
+        <input type="radio" name="q1" value="Closing tag has a / in front."> Closing tag has a / in front.
+    </label>
+    <label>
+        <input type="radio" name="q1" value="There is no difference"> There is no difference
+    </label>
+
+    <h3>Qn 2: We enclose HTML tags within?</h3>
+    <label>
+        <input type="radio" name="q2" value="{}"> {}
+    </label>
+    <label>
+        <input type="radio" name="q2" value="<>"> <>
+    </label>
+    <label>
+        <input type="radio" name="q2" value="!!"> !!
+    </label>
+
+    <h3>Qn 3: Which of the following is correct about HTML?</h3>
+    <label>
+        <input type="radio" name="q3" value="HTML uses user defined tags."> HTML uses user defined tags
+    </label>
+    <label>
+        <input type="radio" name="q3" value="HTML uses tags defined within the language."> HTML uses tags defined within the language
+    </label>
+    <label>
+        <input type="radio" name="q3" value="Both A and B"> Both A and B
+    </label>
+
+        <br>
+        <br>
+        <input type="button" value="Submit" onclick="submitExam()">
+    </form>
+
+    <div id="result" style="display: none;">
+        <h2>Result:</h2>
+        <p id="score"></p>
+        <h3>Correct Answers:</h3>
+        <ul id="correctAnswers"></ul>
+    </div>
+</div>
+
+<script>
+function submitExam() {
+        // Questions and Correct Answers
+        const correctAnswers = {
+            q1: 'Closing tag has a / in front.',
+            q2: '<>',
+            q3: 'HTML uses tags defined within the language.',
+        };
+
+        // Get user's answers
+        const userAnswers = {
+            q1: document.querySelector('input[name="q1"]:checked').value,
+            q2: document.querySelector('input[name="q2"]:checked').value,
+            q3: document.querySelector('input[name="q3"]:checked').value,
+        };
+
+        // Calculate score
+        let score = 0;
+        for (const question in correctAnswers) {
+            if (correctAnswers[question] === userAnswers[question]) {
+                score++;
+            }
+        }
+
+        // Display result
+        document.getElementById('score').innerText = `Score: ${score} out of 3`;
+        const correctAnswersList = document.getElementById('correctAnswers');
+        correctAnswersList.innerHTML = '';
+
+        for (const question in correctAnswers) {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>Question ${question.slice(1)}:</strong> ${correctAnswers[question]}`;
+            correctAnswersList.appendChild(li);
+        }
+
+        // Show result div
+        document.getElementById('result').style.display = 'block';
+    }
+</script>
+</body>
+</html>
